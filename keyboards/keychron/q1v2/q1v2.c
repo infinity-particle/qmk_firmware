@@ -71,6 +71,14 @@ bool rgb_matrix_indicators_advanced_kb(uint8_t led_min, uint8_t led_max) {
             RGB_MATRIX_INDICATOR_SET_COLOR(CAPS_LOCK_LED_INDEX, 0, 0, 0);
         }
     }
+
+    keymap_config.raw = eeconfig_read_keymap();
+    if(keymap_config.no_gui){
+        RGB_MATRIX_INDICATOR_SET_COLOR(73, 255, 0, 0);
+    } else {
+        RGB_MATRIX_INDICATOR_SET_COLOR(73, 0, 0, 0);
+    }
+
     return true;
 }
 
